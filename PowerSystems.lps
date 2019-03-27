@@ -1,0 +1,49 @@
+%! PostScript set of library objects for XCircuit
+%  Version: 3.9
+%  Library name is: PowerSystems
+%  Author: Julio Cortés <loky32>
+%
+
+% Depend Estrella Impedancia
+% Depend Delta Impedancia
+
+% XCircuitLib library objects
+/::Impedancia {
+begingate
+1 1.000 -32 0 -64 0 2 polygon
+0 1.000 -32 16 -32 -16 32 -16 32 16 4 polygon
+1 1.000 32 0 64 0 2 polygon
+endgate
+} def
+
+
+
+/::Estrella {
+begingate
+1.000 90.000 0 40 Impedancia
+1.000 330.000 -56 -56 Impedancia
+1.000 210.000 56 -56 Impedancia
+endgate
+} def
+
+/::Delta {
+begingate
+1.000 300.000 -56 8 Impedancia
+0.000 0.000 0.000 scb
+1 1.000 0 104 -24 64 2 polygon
+1 1.000 0 104 24 64 2 polygon
+sce
+1.000 60.000 56 8 Impedancia
+0.000 0.000 0.000 scb
+1 1.000 112 -88 88 -48 2 polygon
+sce
+1.000 360.000 0 -88 Impedancia
+0.000 0.000 0.000 scb
+1 1.000 112 -88 64 -88 2 polygon
+1 1.000 -64 -88 -112 -88 2 polygon
+1 1.000 -112 -88 -88 -48 2 polygon
+endgate
+} def
+
+
+% EndLib
