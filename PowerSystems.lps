@@ -6,6 +6,9 @@
 
 % Depend Estrella Impedancia
 % Depend Delta Impedancia
+% Depend star-source acsource
+% Depend acsource source
+% Depend delta-source acsource
 
 % XCircuitLib library objects
 /::Impedancia {
@@ -45,5 +48,46 @@ sce
 endgate
 } def
 
+/::source {
+% hidden
+begingate
+1 1.000 0 0 32 0.000 360.000 xcarc
+1 1.000 0 32 0 64 2 polygon
+1 1.000 0 -32 0 -64 2 polygon
+endgate
+} def
+
+/::acsource {
+begingate
+1.000 0.000 0 0 source
+1 0.800 0 -48 0 48 -16 0 16 0 spline
+1.000 0.000 0.000 scb
+(s.p) {/Times-Roman cf} 2 9 0.000 1.000 0 64 pinlabel
+(s.m) {/Times-Roman cf} 2 13 0.000 1.000 0 -64 pinlabel
+endgate
+} def
+
+
+/::star-source {
+begingate
+1.000 60.000 -56 -48 acsource
+1.000 0.000 0 48 acsource
+1.000 120.000 56 -48 acsource
+endgate
+} def
+
+/::delta-source {
+begingate
+1.000 30.000 -56 16 analog::acsource
+1.000 150.000 56 16 analog::acsource
+1 1.000 0 112 24 72 2 polygon
+1 1.000 0 112 -24 72 2 polygon
+1 1.000 -112 -80 -88 -40 2 polygon
+1 1.000 -112 -80 -64 -80 2 polygon
+1.000 270.000 0 -80 analog::acsource
+1 1.000 112 -80 64 -80 2 polygon
+1 1.000 112 -80 88 -40 2 polygon
+endgate
+} def
 
 % EndLib
