@@ -9,6 +9,7 @@
 % Depend star-source acsource
 % Depend acsource source
 % Depend delta-source acsource
+% Depend trafo2_linea trafo2_simple
 
 % XCircuitLib library objects
 /::Impedancia {
@@ -87,6 +88,52 @@ begingate
 1.000 270.000 0 -80 analog::acsource
 1 1.000 112 -80 64 -80 2 polygon
 1 1.000 112 -80 88 -40 2 polygon
+endgate
+} def
+
+/::trafo2_simple {
+begingate
+-8 32 beginpath
+16 32 32 8 -8 0 curveto
+32 -8 16 -32 -8 -32 curveto
+1 1.000 endpath
+endgate
+} def
+
+/::trafo2_linea {
+begingate
+1.000 0.000 -24 0 ::trafo2_simple
+1.000 180.000 24 0 ::trafo2_simple
+endgate
+} def
+
+/::fuente_simple {
+begingate
+1 1.000 0 16 0 48 2 polygon
+1 1.000 0 -16 32 0.000 360.000 xcarc
+endgate
+} def
+
+/::trafo3_simple {
+begingate
+-4 36 beginpath
+12 32 12 16 -4 12 curveto
+12 8 12 -8 -4 -12 curveto
+12 -16 12 -32 -4 -36 curveto
+1 1.000 endpath
+endgate
+} def
+
+/::trafo3_linea {
+begingate
+1.000 0.000 -16 0 ::trafo3_simple
+1.000 180.000 16 0 ::trafo3_simple
+endgate
+} def
+
+/::linebus {
+begingate
+1 1.000 0 36 0 -36 2 polygon
 endgate
 } def
 
